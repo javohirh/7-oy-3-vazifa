@@ -18,7 +18,14 @@ function RenderSwiper({ title = "На неделе" }) {
         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNDZkYmM5MDY3OTNhNjI0YjM3YjRmODI5NzI5Yjc5NiIsIm5iZiI6MTcyNzE1NTUyNS41Njk5ODUsInN1YiI6IjY2ZjI0YTQ0NTgzYzU2Y2RiMTI2NDkwMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.G1QLjfSIklbzHk3FuKPWQN6z1hh-hHYFjRIXWjGokQA",
     },
   };
-
+  const newMovies = {};
+  fetch(
+    "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc",
+    options
+  )
+    .then((response) => response.json())
+    .then((response) => (newMovies = response))
+    .catch((err) => console.error(err));
   const { movies, loading, error } = useFetch(
     "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc",
     options
@@ -45,86 +52,88 @@ function RenderSwiper({ title = "На неделе" }) {
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
       >
-        {movies.results && (
-          <>
-            <SwiperSlide className="h-96 rounded-md bg-[#1D1D1D] max-w-[300px]  ">
-              <div className="relative h-full">
-                <img
-                  src={
-                    "https://image.tmdb.org/t/p/w500/" +
-                    movies.results[randomNumber].poster_path
-                  }
-                  className="w-full h-full"
-                  alt=""
-                />
-                <div className="absolute top-[390px] left-0  z-10">
-                  <h4 className="font-medium text-2xl max-w-[280px]">
-                    {movies.results[randomNumber].title}{" "}
-                    {movies.results[randomNumber].original_language}
-                  </h4>
-                  <p className="text-[#4D4D4D] text-sm">Комедия, Фэнтези</p>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="h-96 rounded-md bg-[#1D1D1D] max-w-[300px]  ">
-              <div className="relative h-full">
-                <img
-                  src={
-                    "https://image.tmdb.org/t/p/w500/" +
-                    movies.results[randomNumber2].poster_path
-                  }
-                  className="w-full h-full"
-                  alt=""
-                />
-                <div className="absolute top-[390px] left-0  z-10">
-                  <h4 className="font-medium text-2xl max-w-[280px]">
-                    {movies.results[randomNumber2].title}{" "}
-                    {movies.results[randomNumber2].original_language}
-                  </h4>
-                  <p className="text-[#4D4D4D] text-sm">Комедия, Фэнтези</p>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="h-96 rounded-md bg-[#1D1D1D] max-w-[300px]  ">
-              <div className="relative h-full">
-                <img
-                  src={
-                    "https://image.tmdb.org/t/p/w500/" +
-                    movies.results[randomNumber3].poster_path
-                  }
-                  className="w-full h-full"
-                  alt=""
-                />
-                <div className="absolute top-[390px] left-0  z-10">
-                  <h4 className="font-medium text-2xl max-w-[280px]">
-                    {movies.results[randomNumber3].title}{" "}
-                    {movies.results[randomNumber3].original_language}
-                  </h4>
-                  <p className="text-[#4D4D4D] text-sm">Комедия, Фэнтези</p>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="h-96 rounded-md bg-[#1D1D1D] max-w-[300px]  ">
-              <div className="relative h-full">
-                <img
-                  src={
-                    "https://image.tmdb.org/t/p/w500/" +
-                    movies.results[randomNumber4].poster_path
-                  }
-                  className="w-full h-full"
-                  alt=""
-                />
-                <div className="absolute top-[390px] left-0  z-10">
-                  <h4 className="font-medium text-2xl max-w-[280px]">
-                    {movies.results[randomNumber4].title}{" "}
-                    {movies.results[randomNumber4].original_language}
-                  </h4>
-                  <p className="text-[#4D4D4D] text-sm">Комедия, Фэнтези</p>
-                </div>
-              </div>
-            </SwiperSlide>
-          </>
-        )}
+        {movies
+          ? movies
+          : newMovies && (
+              <>
+                <SwiperSlide className="h-96 rounded-md bg-[#1D1D1D] max-w-[300px]  ">
+                  <div className="relative h-full">
+                    <img
+                      src={
+                        "https://image.tmdb.org/t/p/w500/" +
+                        movies.results[randomNumber].poster_path
+                      }
+                      className="w-full h-full"
+                      alt=""
+                    />
+                    <div className="absolute top-[390px] left-0  z-10">
+                      <h4 className="font-medium text-2xl max-w-[280px]">
+                        {movies.results[randomNumber].title}{" "}
+                        {movies.results[randomNumber].original_language}
+                      </h4>
+                      <p className="text-[#4D4D4D] text-sm">Комедия, Фэнтези</p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className="h-96 rounded-md bg-[#1D1D1D] max-w-[300px]  ">
+                  <div className="relative h-full">
+                    <img
+                      src={
+                        "https://image.tmdb.org/t/p/w500/" +
+                        movies.results[randomNumber2].poster_path
+                      }
+                      className="w-full h-full"
+                      alt=""
+                    />
+                    <div className="absolute top-[390px] left-0  z-10">
+                      <h4 className="font-medium text-2xl max-w-[280px]">
+                        {movies.results[randomNumber2].title}{" "}
+                        {movies.results[randomNumber2].original_language}
+                      </h4>
+                      <p className="text-[#4D4D4D] text-sm">Комедия, Фэнтези</p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className="h-96 rounded-md bg-[#1D1D1D] max-w-[300px]  ">
+                  <div className="relative h-full">
+                    <img
+                      src={
+                        "https://image.tmdb.org/t/p/w500/" +
+                        movies.results[randomNumber3].poster_path
+                      }
+                      className="w-full h-full"
+                      alt=""
+                    />
+                    <div className="absolute top-[390px] left-0  z-10">
+                      <h4 className="font-medium text-2xl max-w-[280px]">
+                        {movies.results[randomNumber3].title}{" "}
+                        {movies.results[randomNumber3].original_language}
+                      </h4>
+                      <p className="text-[#4D4D4D] text-sm">Комедия, Фэнтези</p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className="h-96 rounded-md bg-[#1D1D1D] max-w-[300px]  ">
+                  <div className="relative h-full">
+                    <img
+                      src={
+                        "https://image.tmdb.org/t/p/w500/" +
+                        movies.results[randomNumber4].poster_path
+                      }
+                      className="w-full h-full"
+                      alt=""
+                    />
+                    <div className="absolute top-[390px] left-0  z-10">
+                      <h4 className="font-medium text-2xl max-w-[280px]">
+                        {movies.results[randomNumber4].title}{" "}
+                        {movies.results[randomNumber4].original_language}
+                      </h4>
+                      <p className="text-[#4D4D4D] text-sm">Комедия, Фэнтези</p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              </>
+            )}
       </Swiper>
     </>
   );
