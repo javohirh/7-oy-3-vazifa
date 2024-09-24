@@ -15,7 +15,7 @@ import face from "../assets/images/face-logo.png";
 import you from "../assets/images/you-logo.png";
 const Footer = () => {
   return (
-    <div className="bg-[#111111] max-w-[1180px] p-8 mx-auto text-white  ">
+    <div className="bg-[#111111] max-w-[1180px] w-full p-8 mx-auto text-white  ">
       <div className="flex items-start justify-between w-full">
         <div className="flex flex-col gap-14">
           <img width={"65px"} src={footerLogo} alt="" />

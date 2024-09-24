@@ -5,3 +5,61 @@ body {
   background-color: #000;
   color: #fff;
 }
+.swiper-button-next:after {
+  content: url(./assets/images/swiper-next.png);
+}
+.swiper-button-prev:after {
+  content: url(./assets/images/swiper-prev.png);
+}
+.main-swiper .swiper-button-next {
+  top: 94%;
+  right: 28%;
+  z-index: 110;
+}
+.main-swiper .swiper-button-prev {
+  top: 94%;
+  left: 28%;
+  z-index: 110;
+}
+.render-swiper .swiper-button-next {
+  top: 38%;
+  right: 0;
+  z-index: 111;
+}
+.render-swiper .swiper-button-prev {
+  top: 38%;
+  left: 0;
+  z-index: 111;
+}
+
+.main-swiper .swiper-pagination {
+  z-index: 11;
+  background-color: transparent;
+}
+.main-swiper .swiper-pagination .swiper-pagination-bullet:nth-child(1) {
+  content: url(./assets/images/po-2.png);
+  width: 108px;
+  height: 64px;
+  border-radius: 12px;
+}
+.main-swiper .swiper-pagination .swiper-pagination-bullet:nth-child(2) {
+  content: url("https://image.tmdb.org/t/p/w500//wWba3TaojhK7NdycRhoQpsG0FaH.jpg");
+  width: 108px;
+  height: 64px;
+  border-radius: 12px;
+}
+.main-swiper .swiper-pagination .swiper-pagination-bullet:nth-child(3) {
+  content: url("https://image.tmdb.org/t/p/w500//kKgQzkUCnQmeTPkyIwHly2t6ZFI.jpg");
+  width: 108px;
+  height: 64px;
+  border-radius: 12px;
+}
+.main-swiper .swiper-pagination .swiper-pagination-bullet:nth-child(4) {
+  content: url("https://image.tmdb.org/t/p/w500//p6AbOJvMQhBmffd0PIv0u8ghWeY.jpg");
+  width: 108px;
+  height: 64px;
+  border-radius: 12px;
+}
+a.active {
+  color: red;
+}

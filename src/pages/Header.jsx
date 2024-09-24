@@ -3,6 +3,8 @@ import afisha from "../assets/images/afisha.svg";
 import seans from "../assets/images/tablet-line.svg";
 import bilet from "../assets/images/bilet.svg";
 import search from "../assets/images/search.svg";
+import profile from "../assets/images/Profile_Icon.svg";
+
 const images = [
   { img: afisha, text: "Афиша" },
   { img: seans, text: "Сеансы" },
@@ -10,19 +12,20 @@ const images = [
   { img: search, text: "Поиск" },
 ];
 import ru from "../assets/images/RU.svg";
+import { NavLink } from "react-router-dom";
 function Header() {
   return (
     <div className="flex items-center justify-between max-w-[1000px] mx-auto my-4">
-      <div>
+      <NavLink to={"/"}>
         <img src={logo} alt="" />
-      </div>
+      </NavLink>
       <div className="flex items-center gap-4 text-center justify-center">
         {images.map((image, i) => {
           return (
-            <div key={i}>
+            <NavLink to={image.text} key={i}>
               <img className="block mx-auto h-5" src={image.img} alt="" />
               <p className="mt-1">{image.text}</p>
-            </div>
+            </NavLink>
           );
         })}
       </div>
@@ -39,7 +42,16 @@ function Header() {
             <option value="uz">UZ</option>
           </select>
         </div>
-        <button className="w-44 h-14 bg-[#C61F1F] rounded-xl">Войти</button>
+        {sessionStorage.getItem("token") ? (
+          <NavLink to={"profile"} className="ms-8">
+            <img className="block mx-auto h-5" src={profile} alt="" />
+            <p className="mt-1">Профиль</p>
+          </NavLink>
+        ) : (
+          <NavLink to={"login"}>
+            <button className="w-44 h-14 bg-[#C61F1F] rounded-xl">Войти</button>
+          </NavLink>
+        )}
       </div>
     </div>
   );
