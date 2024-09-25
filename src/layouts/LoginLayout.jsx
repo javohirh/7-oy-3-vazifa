@@ -5,9 +5,9 @@ import back from "../assets/images/back-to.png";
 
 function LoginLayout() {
   return (
-    <div className=" min-h-screen relative ">
+    <div className=" min-h-screen relative max-w-[1000px] mx-auto ">
       <Header />
-      <NavLink className={"absolute top-[128px] left-[120px]"} to={"/"}>
+      <NavLink className={" absolute mt-12"} to={"/"}>
         {" "}
         <img src={back} alt="" />
       </NavLink>
