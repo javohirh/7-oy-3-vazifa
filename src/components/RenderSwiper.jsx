@@ -10,25 +10,8 @@ import "swiper/css/autoplay";
 import { useFetch } from "../hooks/useFetch";
 
 function RenderSwiper({ title = "На неделе" }) {
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNDZkYmM5MDY3OTNhNjI0YjM3YjRmODI5NzI5Yjc5NiIsIm5iZiI6MTcyNzE1NTUyNS41Njk5ODUsInN1YiI6IjY2ZjI0YTQ0NTgzYzU2Y2RiMTI2NDkwMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.G1QLjfSIklbzHk3FuKPWQN6z1hh-hHYFjRIXWjGokQA",
-    },
-  };
-  const newMovies = {};
-  fetch(
-    "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc",
-    options
-  )
-    .then((response) => response.json())
-    .then((response) => (newMovies = response))
-    .catch((err) => console.error(err));
   const { movies, loading, error } = useFetch(
-    "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc",
-    options
+    "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc"
   );
   const randomNumber = Math.round(Math.random() * 18 + 1);
   const randomNumber2 = Math.round(Math.random() * 18 + 1);
