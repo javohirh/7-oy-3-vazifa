@@ -7,6 +7,8 @@ import LoginLayout from "./layouts/LoginLayout";
 import Login from "./pages/Login";
 import UserNotFound from "./pages/UserNotFound";
 import Check from "./pages/Check";
+import Seans from "./pages/Seans";
+
 function App() {
   const routes = createBrowserRouter([
     {
@@ -16,6 +18,10 @@ function App() {
         {
           index: true,
           element: <Main />,
+        },
+        {
+          path: "Сеансы",
+          element: <Seans />,
         },
       ],
     },
@@ -39,11 +45,8 @@ function App() {
     },
   ]);
   return (
-    <div className="">
+    <div className="max-w-[1320px] mx-auto">
       <RouterProvider router={routes} />
-      {/* <Header />
-      <Main />
-      <Footer /> */}
     </div>
   );
 }

@@ -63,3 +63,9 @@ body {
 a.active {
   color: red;
 }
+a.active svg path {
+  fill: red;
+}
+a.active svg rect {
+  fill: red;
+}

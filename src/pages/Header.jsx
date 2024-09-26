@@ -1,30 +1,32 @@
 import logo from "../assets/images/main-logo.svg";
-import afisha from "../assets/images/afisha.svg";
-import seans from "../assets/images/tablet-line.svg";
-import bilet from "../assets/images/bilet.svg";
-import search from "../assets/images/search.svg";
-import profile from "../assets/images/Profile_Icon.svg";
 
-const images = [
-  { img: afisha, text: "Афиша" },
-  { img: seans, text: "Сеансы" },
-  { img: bilet, text: "Билеты" },
-  { img: search, text: "Поиск" },
-];
 import ru from "../assets/images/RU.svg";
 import { NavLink } from "react-router-dom";
+import { Afisha, Seans, Bilet, Search, Profile } from "../components/svgs";
+
+const images = [
+  { img: <Afisha />, text: "Афиша", path: "/" },
+  { img: <Seans />, text: "Сеансы", path: "/Сеансы" },
+  { img: <Bilet />, text: "Билеты", path: "/Билеты" },
+  { img: <Search />, text: "Поиск", path: "/Поиск" },
+];
+
 function Header() {
   return (
     <div className="flex items-center justify-between max-w-[1000px] mx-auto my-4">
       <NavLink to={"/"}>
         <img src={logo} alt="" />
       </NavLink>
-      <div className="flex items-center gap-4 text-center justify-center">
+      <div className="flex items-center gap-6 text-center justify-center">
         {images.map((image, i) => {
           return (
-            <NavLink to={image.text} key={i}>
-              <img className="block mx-auto h-5" src={image.img} alt="" />
-              <p className="mt-1">{image.text}</p>
+            <NavLink
+              to={image.path}
+              key={i}
+              className="flex flex-col items-center justify-center"
+            >
+              {image.img}
+              <p className="mt-1 ">{image.text}</p>
             </NavLink>
           );
         })}
@@ -43,8 +45,12 @@ function Header() {
           </select>
         </div>
         {sessionStorage.getItem("token") ? (
-          <NavLink to={"profile"} className="ms-8">
-            <img className="block mx-auto h-5" src={profile} alt="" />
+          <NavLink
+            to={"profile"}
+            className="ms-8 flex flex-col justify-center items-center"
+          >
+            <Profile />
+
             <p className="mt-1">Профиль</p>
           </NavLink>
         ) : (

@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from "react";
-import OtpInput from "react-otp-input";
+// import OtpInput from "react-otp-input";
+
+import { OTP } from "react-custom-otp";
+import "react-custom-otp/dist/index.css";
+import { useNavigate } from "react-router-dom";
 
 function Check() {
-  const [otp, setOtp] = useState("");
+  const [stringCode, setStringCode] = useState("");
+  const navigate = useNavigate();
+  const handleSubmitOTP = () => {
+    if (stringCode.length >= 4) {
+      navigate("/");
+    }
+  };
 
   function TimerComponent() {
     const [timer, setTimer] = useState(60);
@@ -27,19 +37,15 @@ function Check() {
         Введите СМС-код, который мы отправили на номер{" "}
         <span className="text-main-red">+998 88 800 90 00</span>
       </p>
-      <div className="mx-auto w-24 my-6">
-        <OtpInput
-          value={otp}
-          onChange={setOtp}
-          numInputs={4}
-          renderSeparator={<span className="ms-2"></span>}
-          renderInput={(props) => (
-            <input
-              style={{ width: "20px", color: "#000" }}
-              className="w-20 p-3 custom-input"
-              {...props}
-            />
-          )}
+      <div className="mx-auto  my-6">
+        <OTP
+          containerClasses="flex-nowrap  "
+          inputsClasses="bg-main-gray w-[89px] h-[60px] rounded-xl text-white outline-none focus:border-none"
+          setSubmitStatus={handleSubmitOTP}
+          separator={<span className="ms-2"></span>}
+          className="bg-main-gray flex text-white"
+          setStringCode={setStringCode}
+          inputsNumber={4}
         />
       </div>
       <p className="text-center text-gray-700 my-4">
