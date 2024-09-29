@@ -8,6 +8,7 @@ export default {
         "main-gray": "#1D1D1D",
         "secondary-gray": "#111111",
         "main-text": "#777777",
+        "text-gray": "#444444",
       },
     },
   },

@@ -8,11 +8,16 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
 import { useFetch } from "../hooks/useFetch";
+import { Link, useLocation } from "react-router-dom";
 
 function RenderSwiper({ title = "На неделе" }) {
   const { movies, loading, error } = useFetch(
     "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc"
   );
+
+  const path = useLocation();
+  console.log(path);
+
   const randomNumber = Math.round(Math.random() * 18 + 1);
   const randomNumber2 = Math.round(Math.random() * 18 + 1);
   const randomNumber3 = Math.round(Math.random() * 18 + 1);
@@ -39,14 +44,22 @@ function RenderSwiper({ title = "На неделе" }) {
           <>
             <SwiperSlide className="h-96 rounded-md bg-[#1D1D1D] max-w-[300px]  ">
               <div className="relative h-full">
-                <img
-                  src={
-                    "https://image.tmdb.org/t/p/w500/" +
-                    movies.results[randomNumber].poster_path
+                <Link
+                  to={
+                    path.pathname === "/"
+                      ? `Сеансы/${movies.results[randomNumber].id}`
+                      : `${movies.results[randomNumber].id}`
                   }
-                  className="w-full h-full"
-                  alt=""
-                />
+                >
+                  <img
+                    src={
+                      "https://image.tmdb.org/t/p/w500/" +
+                      movies.results[randomNumber].poster_path
+                    }
+                    className="w-full h-full"
+                    alt=""
+                  />
+                </Link>
                 <div className="absolute top-[390px] left-0  z-10">
                   <h4 className="font-medium text-2xl max-w-[280px]">
                     {movies.results[randomNumber].title}{" "}
@@ -58,14 +71,22 @@ function RenderSwiper({ title = "На неделе" }) {
             </SwiperSlide>
             <SwiperSlide className="h-96 rounded-md bg-[#1D1D1D] max-w-[300px]  ">
               <div className="relative h-full">
-                <img
-                  src={
-                    "https://image.tmdb.org/t/p/w500/" +
-                    movies.results[randomNumber2].poster_path
+                <Link
+                  to={
+                    path.pathname === "/"
+                      ? `Сеансы/${movies.results[randomNumber2].id}`
+                      : `${movies.results[randomNumber2].id}`
                   }
-                  className="w-full h-full"
-                  alt=""
-                />
+                >
+                  <img
+                    src={
+                      "https://image.tmdb.org/t/p/w500/" +
+                      movies.results[randomNumber2].poster_path
+                    }
+                    className="w-full h-full"
+                    alt=""
+                  />
+                </Link>
                 <div className="absolute top-[390px] left-0  z-10">
                   <h4 className="font-medium text-2xl max-w-[280px]">
                     {movies.results[randomNumber2].title}{" "}
@@ -77,14 +98,22 @@ function RenderSwiper({ title = "На неделе" }) {
             </SwiperSlide>
             <SwiperSlide className="h-96 rounded-md bg-[#1D1D1D] max-w-[300px]  ">
               <div className="relative h-full">
-                <img
-                  src={
-                    "https://image.tmdb.org/t/p/w500/" +
-                    movies.results[randomNumber3].poster_path
+                <Link
+                  to={
+                    path.pathname === "/"
+                      ? `Сеансы/${movies.results[randomNumber3].id}`
+                      : `${movies.results[randomNumber3].id}`
                   }
-                  className="w-full h-full"
-                  alt=""
-                />
+                >
+                  <img
+                    src={
+                      "https://image.tmdb.org/t/p/w500/" +
+                      movies.results[randomNumber3].poster_path
+                    }
+                    className="w-full h-full"
+                    alt=""
+                  />
+                </Link>
                 <div className="absolute top-[390px] left-0  z-10">
                   <h4 className="font-medium text-2xl max-w-[280px]">
                     {movies.results[randomNumber3].title}{" "}
@@ -96,14 +125,22 @@ function RenderSwiper({ title = "На неделе" }) {
             </SwiperSlide>
             <SwiperSlide className="h-96 rounded-md bg-[#1D1D1D] max-w-[300px]  ">
               <div className="relative h-full">
-                <img
-                  src={
-                    "https://image.tmdb.org/t/p/w500/" +
-                    movies.results[randomNumber4].poster_path
+                <Link
+                  to={
+                    path.pathname === "/"
+                      ? `Сеансы/${movies.results[randomNumber4].id}`
+                      : `${movies.results[randomNumber4].id}`
                   }
-                  className="w-full h-full"
-                  alt=""
-                />
+                >
+                  <img
+                    src={
+                      "https://image.tmdb.org/t/p/w500/" +
+                      movies.results[randomNumber4].poster_path
+                    }
+                    className="w-full h-full"
+                    alt=""
+                  />
+                </Link>
                 <div className="absolute top-[390px] left-0  z-10">
                   <h4 className="font-medium text-2xl max-w-[280px]">
                     {movies.results[randomNumber4].title}{" "}

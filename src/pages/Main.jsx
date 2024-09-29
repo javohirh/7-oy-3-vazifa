@@ -11,8 +11,11 @@ import "swiper/css/autoplay";
 
 import RenderSwiper from "../components/RenderSwiper";
 import MainSwiper from "../components/MainSwiper";
+import Axios from "../helpers/Axios";
 
 function Main() {
+  const data = Axios("https://fakestoreapi.com/products");
+
   return (
     <div className=" mx-auto max-w-[1320px]">
       <MainSwiper />

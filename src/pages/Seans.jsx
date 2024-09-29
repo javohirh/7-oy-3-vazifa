@@ -14,36 +14,36 @@ import { BsDisplay } from "react-icons/bs";
 
 function Seans() {
   return (
-    <div className="max-w-[1000px] mx-auto">
+    <div className="max-w-[1100px] mx-auto">
       <div className="flex items-center justify-between my-12">
         <div className="flex gap-2 max-w-[910px]">
-          <FilterBtn color="bg-main-red" text={"Все"}>
+          <FilterBtn color="bg-main-red" text={"Все"} to="Все">
             <FaInfinity size={"1.5rem"} />
           </FilterBtn>
-          <FilterBtn text={"Кино"}>
+          <FilterBtn text={"Кино"} to="Кино">
             <RiMovieLine size={"1.5rem"} color="#C61F1F" />
           </FilterBtn>
-          <FilterBtn text={"Театр"}>
+          <FilterBtn text={"Театр"} to="Театр">
             <MdOutlineMovieCreation size={"1.5rem"} color="#C61F1F" />
           </FilterBtn>
-          <FilterBtn text={"Концерты"}>
+          <FilterBtn text={"Концерты"} to="Концерты">
             <RiNeteaseCloudMusicFill size={"1.5rem"} color="#C61F1F" />
           </FilterBtn>
-          <FilterBtn text={"Спорт"}>
+          <FilterBtn text={"Спорт"} to="Спорт">
             <MdOutlineSportsBasketball size={"1.5rem"} color="#C61F1F" />
           </FilterBtn>
-          <FilterBtn text={"Другие"}>
+          <FilterBtn text={"Другие"} to="Другие">
             <IoMdGlobe size={"1.5rem"} color="#C61F1F" />
           </FilterBtn>
         </div>
-        <FilterBtn text={"Залы"}>
+        <FilterBtn text={"Залы"} to="Залы">
           <BsDisplay size={"1.5rem"} color="#C61F1F" />
         </FilterBtn>
       </div>
 
       <RenderSwiper />
       <h2 className="mb-2">Март</h2>
-      <div className="flex gap-2 items-center max-w-[1180px] ">
+      <div className="flex justify-between items-center max-w-[1100px] ">
         <div className="flex gap-2 items-center max-w-72 ">
           <Numbers day={"Чт"} date={28} />
           <Numbers day={"Пт"} date={29} />

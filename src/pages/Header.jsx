@@ -13,7 +13,7 @@ const images = [
 
 function Header() {
   return (
-    <div className="flex items-center justify-between max-w-[1000px] mx-auto my-4">
+    <div className="flex items-center justify-between max-w-[1180px] mx-auto my-4">
       <NavLink to={"/"}>
         <img src={logo} alt="" />
       </NavLink>
@@ -38,7 +38,7 @@ function Header() {
             src={ru}
             alt=""
           />
-          <select className="bg-[#1D1D1D80] w-[92px] h-[42px] p-3  text-center">
+          <select className="bg-[#1D1D1D80] w-[92px] h-[42px] p-3 rounded-xl  text-center">
             <option value="ru">RU</option>
             <option value="en">EN</option>
             <option value="uz">UZ</option>

@@ -7,6 +7,8 @@ import LoginLayout from "./layouts/LoginLayout";
 import Login from "./pages/Login";
 import UserNotFound from "./pages/UserNotFound";
 import Check from "./pages/Check";
+import SeansLayout from "./layouts/SeansLayout";
+import Movie from "./pages/Movie";
 import Seans from "./pages/Seans";
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
     {
       path: "/",
       element: <MainRootLayout />,
+
       children: [
         {
           index: true,
@@ -21,10 +24,21 @@ function App() {
         },
         {
           path: "Сеансы",
-          element: <Seans />,
+          element: <SeansLayout />,
+          children: [
+            {
+              index: true,
+              element: <Seans />,
+            },
+            {
+              path: ":id",
+              element: <Movie />,
+            },
+          ],
         },
       ],
     },
+
     {
       path: "login",
       element: <LoginLayout />,
