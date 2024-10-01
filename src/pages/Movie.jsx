@@ -9,6 +9,7 @@ import IMDB from "../assets/images/IMDB.png";
 import kinopoisk from "../assets/images/kinopoisk.png";
 import { MdLocalMovies } from "react-icons/md";
 import RenderSwiper from "../components/RenderSwiper";
+import { request } from "../helpers/Axios";
 
 function Movie() {
   const tickets = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -145,7 +146,7 @@ function Movie() {
           </div>
         </>
       ) : (
-        <>
+        <div>
           <div className="max-w-[380px] mx-auto mb-[240px]">
             <div className="flex justify-between my-12">
               <img src={IMDB} alt="" />
@@ -215,7 +216,7 @@ function Movie() {
             </button>
           </div>
           <RenderSwiper />
-        </>
+        </div>
       )}
     </div>
   );

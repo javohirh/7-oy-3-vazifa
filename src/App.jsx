@@ -10,6 +10,13 @@ import Check from "./pages/Check";
 import SeansLayout from "./layouts/SeansLayout";
 import Movie from "./pages/Movie";
 import Seans from "./pages/Seans";
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   const routes = createBrowserRouter([
@@ -58,10 +65,13 @@ function App() {
       ],
     },
   ]);
+
   return (
-    <div className="max-w-[1320px] mx-auto">
-      <RouterProvider router={routes} />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="max-w-[1320px] mx-auto">
+        <RouterProvider router={routes} />
+      </div>
+    </QueryClientProvider>
   );
 }
 
