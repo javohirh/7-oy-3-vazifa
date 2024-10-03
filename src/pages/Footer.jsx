@@ -13,7 +13,14 @@ import sport from "../assets/images/sport.png";
 import ins from "../assets/images/ins-logo.png";
 import face from "../assets/images/face-logo.png";
 import you from "../assets/images/you-logo.png";
+import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 const Footer = () => {
+  const { language } = useSelector((store) => store.language);
+  const { pathname } = useLocation();
+  if (pathname == "/profile") {
+    return <></>;
+  }
   return (
     <div className="bg-[#111111] max-w-[1180px] w-full p-8 mx-auto text-white  ">
       <div className="flex items-start justify-between w-full">

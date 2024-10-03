@@ -68,4 +68,5 @@ a.active svg path {
 }
 a.active svg rect {
   fill: red;
+  stroke: red;
 }

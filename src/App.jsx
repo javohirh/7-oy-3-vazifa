@@ -1,20 +1,19 @@
-import Footer from "./pages/Footer";
-import Header from "./pages/Header";
-import Main from "./pages/Main";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MainRootLayout from "./layouts/MainRootLayout";
-import LoginLayout from "./layouts/LoginLayout";
-import Login from "./pages/Login";
-import UserNotFound from "./pages/UserNotFound";
-import Check from "./pages/Check";
-import SeansLayout from "./layouts/SeansLayout";
-import Movie from "./pages/Movie";
-import Seans from "./pages/Seans";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Provider } from "react-redux";
+import { MainRootLayout, LoginLayout, SeansLayout } from "./layouts";
 import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query";
+  Login,
+  Check,
+  Movie,
+  Seans,
+  UserNotFound,
+  Main,
+  BiletPage,
+  Profile,
+} from "./pages";
+
+import store from "./redux/store";
 
 const queryClient = new QueryClient();
 
@@ -30,7 +29,7 @@ function App() {
           element: <Main />,
         },
         {
-          path: "Сеансы",
+          path: "seance",
           element: <SeansLayout />,
           children: [
             {
@@ -42,6 +41,14 @@ function App() {
               element: <Movie />,
             },
           ],
+        },
+        {
+          path: "bilet",
+          element: <BiletPage />,
+        },
+        {
+          path: "profile",
+          element: <Profile />,
         },
       ],
     },
@@ -67,11 +74,13 @@ function App() {
   ]);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="max-w-[1320px] mx-auto">
-        <RouterProvider router={routes} />
-      </div>
-    </QueryClientProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <div className="max-w-[1320px] mx-auto">
+          <RouterProvider router={routes} />
+        </div>
+      </QueryClientProvider>
+    </Provider>
   );
 }
 

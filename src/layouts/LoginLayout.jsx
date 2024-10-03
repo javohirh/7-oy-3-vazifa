@@ -5,7 +5,6 @@ import back from "../assets/images/back-to.png";
 
 function LoginLayout() {
   const path = useLocation();
-  console.log(path);
 
   return (
     <div className=" min-h-screen relative max-w-[1000px] mx-auto ">

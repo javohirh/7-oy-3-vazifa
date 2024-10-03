@@ -56,13 +56,7 @@ function RenderSwiper({ title = "На неделе" }) {
               <>
                 <SwiperSlide className="h-96 rounded-md bg-[#1D1D1D] max-w-[300px]  ">
                   <div className="relative h-full">
-                    <Link
-                      to={
-                        path.pathname === "/"
-                          ? `Сеансы/${data[randomNumber].id}`
-                          : `${data[randomNumber].id}`
-                      }
-                    >
+                    <Link to={`/seance/${data[randomNumber].id}`}>
                       <img
                         src={
                           "https://image.tmdb.org/t/p/w500/" +
@@ -86,7 +80,7 @@ function RenderSwiper({ title = "На неделе" }) {
                     <Link
                       to={
                         path.pathname === "/"
-                          ? `Сеансы/${data[randomNumber2].id}`
+                          ? `seance/${data[randomNumber2].id}`
                           : `${data[randomNumber2].id}`
                       }
                     >
@@ -113,7 +107,7 @@ function RenderSwiper({ title = "На неделе" }) {
                     <Link
                       to={
                         path.pathname === "/"
-                          ? `Сеансы/${data[randomNumber3].id}`
+                          ? `seance/${data[randomNumber3].id}`
                           : `${data[randomNumber3].id}`
                       }
                     >
@@ -140,7 +134,7 @@ function RenderSwiper({ title = "На неделе" }) {
                     <Link
                       to={
                         path.pathname === "/"
-                          ? `Сеансы/${data[randomNumber4].id}`
+                          ? `seance/${data[randomNumber4].id}`
                           : `${data[randomNumber4].id}`
                       }
                     >
