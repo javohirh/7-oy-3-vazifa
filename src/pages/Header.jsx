@@ -20,6 +20,7 @@ function Header() {
   const handleChange = (e) => {
     dispatch(changeLanguage(e.target.value));
   };
+  const { login } = useSelector((store) => store.enter);
 
   return (
     <div className="flex items-center justify-between max-w-[1200px] mx-auto my-4">
@@ -57,7 +58,7 @@ function Header() {
             <option value="ru">RU</option>
           </select>
         </div>
-        {sessionStorage.getItem("token") ? (
+        {login ? (
           <NavLink
             to={"profile"}
             className="ms-8 flex flex-col justify-center items-center"

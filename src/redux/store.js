@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import languageSlice from "./LanguageRedux.jsx/Language";
-// import loginSlice from "./Enter";
+import loginSlice from "./Enter";
 const store = configureStore({
   reducer: {
     language: languageSlice,
-    // enter: loginSlice,
+    enter: loginSlice,
   },
 });
 

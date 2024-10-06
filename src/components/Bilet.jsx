@@ -1,9 +1,11 @@
-import { useQueries, useQuery } from "@tanstack/react-query";
-import React from "react";
+import Modal from "./Modal";
+import { useQuery } from "@tanstack/react-query";
+import React, { useEffect, useState } from "react";
 import { request } from "../helpers/Axios";
 import { FaCheck } from "react-icons/fa6";
 
 function Bilet({ tab = 1 }) {
+  const [modal, setModal] = useState(false);
   const { data, isLoading, error } = useQuery({
     queryKey: ["movies"],
     queryFn: async () =>
@@ -13,12 +15,24 @@ function Bilet({ tab = 1 }) {
         return data.data.results;
       }),
   });
+  useEffect(() => {
+    if (modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [modal]);
   const randomNumber = Math.round(Math.random() * 18 + 1);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
 
+  if (modal) {
+    return (
+      <Modal data={data} randomNumber={randomNumber} setModal={setModal} />
+    );
+  }
   return (
     <>
       {data && (
@@ -54,7 +68,10 @@ function Bilet({ tab = 1 }) {
               <hr className="my-2" />
               <div className="flex items-center justify-between p-3">
                 <h2>Ваш билет бронирован</h2>
-                <button className=" py-4 px-20 bg-main-red rounded-lg ">
+                <button
+                  onClick={() => setModal(true)}
+                  className=" py-4 px-20 bg-main-red rounded-lg "
+                >
                   Получить билет
                 </button>
               </div>

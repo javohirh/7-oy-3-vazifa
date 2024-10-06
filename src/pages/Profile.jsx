@@ -4,13 +4,19 @@ import ProfileImg from "../components/svgs/Profile";
 import { LuPencil } from "react-icons/lu";
 import { MdKeyboardArrowRight, MdOutlineEventNote } from "react-icons/md";
 import { ImExit } from "react-icons/im";
+import { useDispatch, useSelector } from "react-redux";
+import { clearToken } from "../redux/Enter";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const [modal, setModal] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleExit = () => {
-    sessionStorage.clear("token");
+    navigate("/");
     setModal(false);
+    dispatch(clearToken());
   };
   if (modal) {
     return (

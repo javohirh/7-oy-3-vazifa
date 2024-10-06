@@ -11,6 +11,7 @@ import {
   Main,
   BiletPage,
   Profile,
+  Search,
 } from "./pages";
 
 import store from "./redux/store";
@@ -49,6 +50,10 @@ function App() {
         {
           path: "profile",
           element: <Profile />,
+        },
+        {
+          path: "search",
+          element: <Search />,
         },
       ],
     },

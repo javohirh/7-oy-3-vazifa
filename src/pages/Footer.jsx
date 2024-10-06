@@ -21,6 +21,9 @@ const Footer = () => {
   if (pathname == "/profile") {
     return <></>;
   }
+  if (pathname == "/search") {
+    return <></>;
+  }
   return (
     <div className="bg-[#111111] max-w-[1180px] w-full p-8 mx-auto text-white  ">
       <div className="flex items-start justify-between w-full">

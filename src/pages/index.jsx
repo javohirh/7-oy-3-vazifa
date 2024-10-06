@@ -8,6 +8,7 @@ import Movie from "./Movie";
 import Seans from "./Seans";
 import UserNotFound from "./UserNotFound";
 import Profile from "./Profile";
+import Search from "./Search";
 
 export {
   Login,
@@ -20,4 +21,5 @@ export {
   Seans,
   UserNotFound,
   Profile,
+  Search,
 };

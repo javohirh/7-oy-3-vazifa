@@ -6,6 +6,7 @@ import Bilet from "../components/Bilet";
 
 function BiletPage() {
   const [tab, setTab] = useState(1);
+
   return (
     <div className="max-w-[1200px] mx-auto">
       <button className="w-[380px] rounded-xl flex items-center m-auto my-12 bg-secondary-gray">
