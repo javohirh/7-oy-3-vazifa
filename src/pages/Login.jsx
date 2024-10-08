@@ -2,9 +2,9 @@ import { useMask } from "@react-input/mask";
 import uz from "../assets/images/UZ.png";
 import face from "../assets/images/facebook.png";
 import google from "../assets/images/google-login.png";
-import { Navigate, NavLink } from "react-router-dom";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+
+import { useSelector } from "react-redux";
 import { getToken } from "../redux/Enter";
 function Login() {
   // const [tocen, setTocen] = useState(sessionStorage.getItem("token"));
@@ -13,9 +13,6 @@ function Login() {
     replacement: { _: /\d/ },
   });
   const { login } = useSelector((store) => store.enter);
-
-  const dispatch = useDispatch();
-
   // const getToken = () => {
   //   fetch("https://fakestoreapi.com/auth/login", {
   //     method: "POST",
@@ -43,14 +40,11 @@ function Login() {
       <div className="mt-8 relative">
         <img className="absolute top-5 left-3" src={uz} alt="" />
         <input
-          onChange={() => {
-            dispatch(getToken());
-          }}
           required
           className="text-base text-center w-full bg-secondary-gray p-5 rounded-xl outline-none"
           ref={inputRef}
         />
-        <NavLink to={login ? "check" : "usernotfound"}>
+        <NavLink to={"check"}>
           <button className="bg-main-red p-5 w-full rounded-xl mt-6">
             Регистрация
           </button>

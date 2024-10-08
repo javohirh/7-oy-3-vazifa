@@ -1,10 +1,14 @@
-import React from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import click from "../assets/images/click.png";
 import payme from "../assets/images/payme.png";
 import ryad from "../assets/images/ryad.png";
-function Modal({ randomNumber, data, setModal }) {
+function Modal({ id, data, setModal }) {
+  // const [ticket, setTicket]= useState(data)
+
+  const ticket = data.filter((prev) => prev.id === id);
+  console.log(ticket);
+
   return (
     <div className=" fixed top-0 left-0 w-full h-screen bg-[#00000080]">
       <div className="absolute h-[80vh]  overflow-y-auto  z-30 top-20 p-1 left-1/2 translate-x-[-50%] max-w-[90%] w-full bg-secondary-gray  ">
@@ -27,16 +31,11 @@ function Modal({ randomNumber, data, setModal }) {
         <div className="flex bg-[#1D1D1D]  rounded-md max-w-[580px] mx-auto items-center gap-5">
           <img
             className="h-[260px] w-[260px] rounded-xl p-2 "
-            src={
-              "https://image.tmdb.org/t/p/w500/" +
-              data[randomNumber].poster_path
-            }
+            src={"https://image.tmdb.org/t/p/w500/" + ticket[0].poster_path}
             alt=""
           />
           <div className="mb-3">
-            <h2 className="font-medium text-2xl mb-5 ">
-              {data[randomNumber].title}
-            </h2>
+            <h2 className="font-medium text-2xl mb-5 ">{ticket[0].title}</h2>
             <p className="text-[#A1A1A1] mb-4">
               2024 • RU • 6+ • 1ч 34м / 94 минут
             </p>

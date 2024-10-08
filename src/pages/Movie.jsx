@@ -9,16 +9,32 @@ import IMDB from "../assets/images/IMDB.png";
 import kinopoisk from "../assets/images/kinopoisk.png";
 import { MdLocalMovies } from "react-icons/md";
 import RenderSwiper from "../components/RenderSwiper";
-import { request } from "../helpers/Axios";
+
+import UseStore from "../zustand/Store";
+import { toast } from "react-toastify";
 
 function Movie() {
   const tickets = [1, 2, 3, 4, 5, 6, 7, 8];
   const tickets2 = [1, 2, 3, 4, 5];
+  const [isOne, setIsOne] = useState(true);
   const { id } = useParams();
   const [tab, setTab] = useState(1);
   const { movies, loading, error } = useFetch(
     `https://api.themoviedb.org/3/movie/${id}?api_key=b46dbc906793a624b37b4f829729b796`
   );
+  const { setTickets } = UseStore();
+  const handleAddMovie = (movies) => {
+    if (isOne) {
+      toast.info("Movie added to cart", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+
+      setTickets(movies);
+    }
+
+    setIsOne(false);
+  };
 
   return (
     <div className="mx-auto max-w-[1320px] ">
@@ -34,9 +50,14 @@ function Movie() {
           <p className="text-center my-3 text-slate-200">
             2024 • Комедия • 1ч 34м • EN • 6+
           </p>
-          <button className="mx-auto flex items-center justify-center gap-3 w-80 h-12 bg-white rounded-md text-red-600">
+          <button
+            onClick={() => {
+              handleAddMovie(movies);
+            }}
+            className="mx-auto flex items-center justify-center gap-3 w-80 h-12 bg-main-red rounded-md text-white"
+          >
             {" "}
-            <img src={btnIcon} alt="" /> Смотреть
+            <img src={btnIcon} alt="" /> Купить билет
           </button>
         </div>
       </div>

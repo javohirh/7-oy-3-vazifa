@@ -3,14 +3,20 @@ import React, { useState, useEffect } from "react";
 
 import { OTP } from "react-custom-otp";
 import "react-custom-otp/dist/index.css";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { getToken } from "../redux/Enter";
 
 function Check() {
   const [stringCode, setStringCode] = useState("");
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
   const handleSubmitOTP = () => {
     if (stringCode.length >= 4) {
       navigate("/");
+
+      dispatch(getToken());
     }
   };
 

@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "react-toastify/dist/ReactToastify.css";
 import { Provider } from "react-redux";
 import { MainRootLayout, LoginLayout, SeansLayout } from "./layouts";
 import {
@@ -15,6 +16,7 @@ import {
 } from "./pages";
 
 import store from "./redux/store";
+import { ToastContainer } from "react-toastify";
 
 const queryClient = new QueryClient();
 
@@ -82,6 +84,7 @@ function App() {
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <div className="max-w-[1320px] mx-auto">
+          <ToastContainer />
           <RouterProvider router={routes} />
         </div>
       </QueryClientProvider>

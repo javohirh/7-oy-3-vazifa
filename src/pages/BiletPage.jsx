@@ -3,9 +3,12 @@ import Header from "./Header";
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import Bilet from "../components/Bilet";
+import UseStore from "../zustand/Store";
 
 function BiletPage() {
   const [tab, setTab] = useState(1);
+  const [tickets] = UseStore((state) => state.tickets);
+  console.log(tickets);
 
   return (
     <div className="max-w-[1200px] mx-auto">
@@ -30,16 +33,11 @@ function BiletPage() {
       {tab == 1 && (
         <>
           <Bilet />
-          <Bilet />
-          <Bilet />
-          <Bilet />
         </>
       )}
 
       {tab == 2 && (
         <>
-          <Bilet tab={tab} />
-          <Bilet tab={tab} />
           <Bilet tab={tab} />
         </>
       )}
