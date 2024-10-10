@@ -4,10 +4,7 @@ import click from "../assets/images/click.png";
 import payme from "../assets/images/payme.png";
 import ryad from "../assets/images/ryad.png";
 function Modal({ id, data, setModal }) {
-  // const [ticket, setTicket]= useState(data)
-
   const ticket = data.filter((prev) => prev.id === id);
-  console.log(ticket);
 
   return (
     <div className=" fixed top-0 left-0 w-full h-screen bg-[#00000080]">

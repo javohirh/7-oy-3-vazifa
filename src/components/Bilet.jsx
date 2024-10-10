@@ -1,7 +1,5 @@
 import Modal from "./Modal";
-import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
-import { request } from "../helpers/Axios";
 import { FaCheck } from "react-icons/fa6";
 import UseStore from "../zustand/Store";
 
@@ -10,7 +8,6 @@ function Bilet({ tab = 1 }) {
   const [id, setId] = useState();
 
   const { tickets, deleteTicket } = UseStore();
-  console.log(tickets);
 
   useEffect(() => {
     if (modal) {

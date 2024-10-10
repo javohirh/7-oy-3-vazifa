@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import Inputs from "../components/Inputs";
 import ProfileImg from "../components/svgs/Profile";
 import { LuPencil } from "react-icons/lu";
 import { MdKeyboardArrowRight, MdOutlineEventNote } from "react-icons/md";
 import { ImExit } from "react-icons/im";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { clearToken } from "../redux/Enter";
 import { useNavigate } from "react-router-dom";
 
@@ -13,11 +13,12 @@ function Profile() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleExit = () => {
+  const handleExit = useCallback(() => {
     navigate("/");
     setModal(false);
     dispatch(clearToken());
-  };
+  }, []);
+
   if (modal) {
     return (
       <div className="fixed top-0 left-0 w-full h-screen bg-[#00000090]">

@@ -4,32 +4,11 @@ import face from "../assets/images/facebook.png";
 import google from "../assets/images/google-login.png";
 import { NavLink } from "react-router-dom";
 
-import { useSelector } from "react-redux";
-import { getToken } from "../redux/Enter";
 function Login() {
-  // const [tocen, setTocen] = useState(sessionStorage.getItem("token"));
   const inputRef = useMask({
     mask: "+___ __ ___-__-__",
     replacement: { _: /\d/ },
   });
-  const { login } = useSelector((store) => store.enter);
-  // const getToken = () => {
-  //   fetch("https://fakestoreapi.com/auth/login", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "Application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       username: "mor_2314",
-  //       password: "83r5^_",
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //       sessionStorage.setItem("token", json.token);
-  //       setTocen(json.token);
-  //     });
-  // };
 
   return (
     <div className="mt-12">

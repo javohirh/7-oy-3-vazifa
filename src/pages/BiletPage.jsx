@@ -7,8 +7,6 @@ import UseStore from "../zustand/Store";
 
 function BiletPage() {
   const [tab, setTab] = useState(1);
-  const [tickets] = UseStore((state) => state.tickets);
-  console.log(tickets);
 
   return (
     <div className="max-w-[1200px] mx-auto">

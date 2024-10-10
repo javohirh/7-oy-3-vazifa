@@ -1,7 +1,7 @@
 import logo from "../assets/images/main-logo.svg";
 
 import ru from "../assets/images/RU.svg";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Afisha, Seans, Bilet, Search, Profile } from "../components/svgs";
 import { useDispatch, useSelector } from "react-redux";
 import { changeLanguage } from "../redux/LanguageRedux.jsx/Language";
