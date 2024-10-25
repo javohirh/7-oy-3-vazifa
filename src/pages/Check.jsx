@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
-// import OtpInput from "react-otp-input";
 
 import { OTP } from "react-custom-otp";
 import "react-custom-otp/dist/index.css";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { getToken } from "../redux/Enter";
+import useStore from "../zustand/Store";
+function formatPhoneNumber(number, country) {
+  const phoneNumber = parsePhoneNumberFromString(number, country);
+  return phoneNumber ? phoneNumber.formatInternational() : number;
+}
 
 function Check() {
   const [stringCode, setStringCode] = useState("");
   const navigate = useNavigate();
-
+  const { phoneNumber } = useStore();
   const dispatch = useDispatch();
   const handleSubmitOTP = () => {
     if (stringCode.length >= 4) {
@@ -41,7 +46,7 @@ function Check() {
       <h2 className="text-2xl text-center">Введите СМС-код</h2>
       <p className="text-center text-gray-700 mt-4">
         Введите СМС-код, который мы отправили на номер{" "}
-        <span className="text-main-red">+998 88 800 90 00</span>
+        <span className="text-main-red">{phoneNumber}</span>
       </p>
       <div className="mx-auto  my-6">
         <OTP

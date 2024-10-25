@@ -6,6 +6,11 @@ const useStore = create(
     persist(
       (set) => ({
         tickets: [],
+        phoneNumber: "",
+        setPhoneNumber: (number) =>
+          set(() => {
+            return { phoneNumber: number };
+          }),
         setTickets: (ticket) =>
           set((state) => {
             return { tickets: [...state.tickets, ticket] };
@@ -18,8 +23,8 @@ const useStore = create(
           }),
       }),
       {
-        name: "ticket-storage", // unique name for the persisted storage
-        getStorage: () => localStorage, // (optional) define the storage type
+        name: "ticket-storage",
+        getStorage: () => localStorage,
       }
     )
   )

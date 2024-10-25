@@ -3,13 +3,13 @@ import uz from "../assets/images/UZ.png";
 import face from "../assets/images/facebook.png";
 import google from "../assets/images/google-login.png";
 import { NavLink } from "react-router-dom";
-
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
+import { useState } from "react";
+import useStore from "../zustand/Store";
 function Login() {
-  const inputRef = useMask({
-    mask: "+___ __ ___-__-__",
-    replacement: { _: /\d/ },
-  });
-
+  const [value, setValue] = useState();
+  const { setPhoneNumber } = useStore();
   return (
     <div className="mt-12">
       <h2 className="text-2xl text-center">Регистрация</h2>
@@ -17,14 +17,19 @@ function Login() {
         Введите номер телефона для того чтобы войти или пройти регистрацию
       </p>
       <div className="mt-8 relative">
-        <img className="absolute top-5 left-3" src={uz} alt="" />
-        <input
-          required
-          className="text-base text-center w-full bg-secondary-gray p-5 rounded-xl outline-none"
-          ref={inputRef}
+        <PhoneInput
+          defaultCountry="UZ"
+          className=" text-black  top-5 left-3 text-base text-center w-full bg-secondary-gray p-5 rounded-xl outline-none"
+          placeholder="Enter phone number"
+          value={value}
+          onChange={setValue}
         />
+
         <NavLink to={"check"}>
-          <button className="bg-main-red p-5 w-full rounded-xl mt-6">
+          <button
+            onClick={() => setPhoneNumber(value)}
+            className="bg-main-red p-5 w-full rounded-xl mt-6"
+          >
             Регистрация
           </button>
         </NavLink>

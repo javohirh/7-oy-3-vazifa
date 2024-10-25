@@ -14,7 +14,7 @@ import ins from "../assets/images/ins-logo.png";
 import face from "../assets/images/face-logo.png";
 import you from "../assets/images/you-logo.png";
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const Footer = () => {
   const { language } = useSelector((store) => store.language);
   const { pathname } = useLocation();
@@ -38,54 +38,89 @@ const Footer = () => {
         </div>
 
         <ul>
-          <h2 className="font-medium">О нас</h2>
-          <li className="flex my-4 items-center gap-2">
-            <img src={oferta} alt="" />
-            Публичная оферта
-          </li>
-          <li className="flex my-4 items-center text-red-500 gap-2">
-            <img src={reklama} alt="" />
-            Реклама
-          </li>
-          <li className="flex my-4 items-center gap-2">
-            <img src={faq} alt="" />
-            F.A.Q
-          </li>
-          <li className="flex my-4 items-center gap-2">
-            <img src={contact} alt="" />
-            Контакты
-          </li>
+          <Link>
+            <h2 className="font-medium">О нас</h2>
+          </Link>
+          <Link>
+            <li className="flex my-4 items-center gap-2">
+              <img src={oferta} alt="" />
+              Публичная оферта
+            </li>
+          </Link>
+          <Link>
+            <li className="flex my-4 items-center text-red-500 gap-2">
+              <img src={reklama} alt="" />
+              Реклама
+            </li>
+          </Link>
+          <Link>
+            <li className="flex my-4 items-center gap-2">
+              <img src={faq} alt="" />
+              F.A.Q
+            </li>
+          </Link>
+          <Link>
+            <li className="flex my-4 items-center gap-2">
+              <img src={contact} alt="" />
+              Контакты
+            </li>
+          </Link>
         </ul>
         <ul>
-          <h2 className="font-medium">Категории</h2>
-          <li className="flex my-4 items-center gap-2">
-            <img src={kino} alt="" />
-            Кино
-          </li>
-          <li className="flex my-4 items-center text-red-500 gap-2">
-            <img src={cinema} alt="" />
-            Театр
-          </li>
-          <li className="flex my-4 items-center gap-2">
-            <img src={consert} alt="" />
-            Концерты
-          </li>
-          <li className="flex my-4 items-center gap-2">
-            <img src={sport} alt="" />
-            Спорт
-          </li>
+          <Link>
+            <h2 className="font-medium">Категории</h2>
+          </Link>
+          <Link>
+            <li className="flex my-4 items-center gap-2">
+              <img src={kino} alt="" />
+              Кино
+            </li>
+          </Link>
+          <Link>
+            <li className="flex my-4 items-center text-red-500 gap-2">
+              <img src={cinema} alt="" />
+              Театр
+            </li>
+          </Link>
+          <Link>
+            <li className="flex my-4 items-center gap-2">
+              <img src={consert} alt="" />
+              Концерты
+            </li>
+          </Link>
+          <Link>
+            <li className="flex my-4 items-center gap-2">
+              <img src={sport} alt="" />
+              Спорт
+            </li>
+          </Link>
         </ul>
         <ul>
-          <h2 className="font-medium">Связаться с нами</h2>
-          <li className="flex my-4 items-center gap-2 text-red-500">
-            +998 (95) 897-33-38
-          </li>
-          <li className="flex my-4 items-center  gap-2"></li>
-          <li className="flex my-4 items-center gap-2">Социальные сети</li>
+          <Link>
+            <h2 className="font-medium">Связаться с нами</h2>
+          </Link>
+          <Link>
+            <li className="flex my-4 items-center gap-2 text-red-500">
+              +998 (95) 897-33-38
+            </li>
+          </Link>
+          <Link>
+            <li className="flex my-4 items-center  gap-2"></li>
+          </Link>
+          <Link>
+            <li className="flex my-4 items-center gap-2">Социальные сети</li>
+          </Link>
           <li className="flex my-4 items-center gap-2">
-            <img src={ins} alt="" />
-            <img src={face} alt="" />
-            <img src={you} alt="" />
+            <Link>
+              <img src={ins} alt="" />
+            </Link>
+            <Link>
+              <img src={face} alt="" />
+            </Link>
+            <Link>
+              {" "}
+              <img src={you} alt="" />
+            </Link>
           </li>
         </ul>
       </div>

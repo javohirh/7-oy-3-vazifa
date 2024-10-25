@@ -1,10 +1,12 @@
 import logo from "../assets/images/main-logo.svg";
+import React from "react";
 
-import ru from "../assets/images/RU.svg";
 import { NavLink } from "react-router-dom";
 import { Afisha, Seans, Bilet, Search, Profile } from "../components/svgs";
 import { useDispatch, useSelector } from "react-redux";
 import { changeLanguage } from "../redux/LanguageRedux.jsx/Language";
+
+import Flag from "react-world-flags";
 
 const images = [
   { img: <Afisha />, text: "Афиша", path: "/" },
@@ -36,25 +38,24 @@ function Header() {
               className="flex flex-col items-center justify-center"
             >
               {image.img}
-              <p className="mt-1 ">{image.text}</p>
+              <p className="mt-1  ">{image.text}</p>
             </NavLink>
           );
         })}
       </div>
       <div className="flex items-center ">
         <div className="relative">
-          <img
-            className="absolute top-[57%] left-1 translate-y-[-50%]"
-            src={ru}
-            alt=""
-          />
+          <div className="absolute top-[50%] left-1 w-6 h-6 rounded-full overflow-hidden translate-y-[-50%] border border-gray-300">
+            <Flag code={language} className="object-cover w-full h-full" />
+          </div>
+
           <select
             value={language}
             onChange={(e) => handleChange(e)}
-            className="bg-[#1D1D1D80] w-[92px] h-[42px] p-3 rounded-xl  text-center"
+            className="bg-[#1D1D1D80] w-[92px] h-[42px] p-3 ps-6 rounded-xl  text-center"
           >
             <option value="uz">UZ</option>
-            <option value="en">EN</option>
+            <option value="us">EN</option>
             <option value="ru">RU</option>
           </select>
         </div>

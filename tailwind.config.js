@@ -10,6 +10,9 @@ export default {
         "main-text": "#777777",
         "text-gray": "#444444",
       },
+      fontFamily: {
+        custom: ["main", "sans-serif"],
+      },
     },
   },
   plugins: [],

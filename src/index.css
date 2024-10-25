@@ -1,9 +1,11 @@
+@import "./assets/fonts/font.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 body {
   background-color: #000;
   color: #fff;
+  font-family: "main";
 }
 .swiper-button-next:after {
   content: url(./assets/images/swiper-next.png);
@@ -36,30 +38,51 @@ body {
   z-index: 11;
   background-color: transparent;
 }
+
+@keyframes curtainReveal {
+  0% {
+    opacity: 0.3;
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0); /* Fully reveal image */
+  }
+}
+
+/* Default style for pagination bullets */
+.main-swiper .swiper-pagination .swiper-pagination-bullet {
+  width: 108px;
+  height: 64px;
+  border-radius: 12px;
+  opacity: 0.3;
+  /* clip-path: inset(0 100% 0 0); Initially hidden with curtain effect */
+  transition: opacity 3s ease-in-out;
+}
+
+/* Active bullet will trigger the animation */
+.main-swiper .swiper-pagination .swiper-pagination-bullet-active {
+  animation: curtainReveal 3s forwards linear; /* Curtain reveal effect over autoplay duration */
+  opacity: 1;
+}
+
+/* Specific pagination bullet images */
 .main-swiper .swiper-pagination .swiper-pagination-bullet:nth-child(1) {
   content: url(./assets/images/po-2.png);
-  width: 108px;
-  height: 64px;
-  border-radius: 12px;
 }
+
 .main-swiper .swiper-pagination .swiper-pagination-bullet:nth-child(2) {
   content: url("https://image.tmdb.org/t/p/w500//wWba3TaojhK7NdycRhoQpsG0FaH.jpg");
-  width: 108px;
-  height: 64px;
-  border-radius: 12px;
 }
+
 .main-swiper .swiper-pagination .swiper-pagination-bullet:nth-child(3) {
   content: url("https://image.tmdb.org/t/p/w500//kKgQzkUCnQmeTPkyIwHly2t6ZFI.jpg");
-  width: 108px;
-  height: 64px;
-  border-radius: 12px;
 }
+
 .main-swiper .swiper-pagination .swiper-pagination-bullet:nth-child(4) {
   content: url("https://image.tmdb.org/t/p/w500//p6AbOJvMQhBmffd0PIv0u8ghWeY.jpg");
-  width: 108px;
-  height: 64px;
-  border-radius: 12px;
 }
+
 a.active {
   color: red;
 }
@@ -69,4 +92,17 @@ a.active svg path {
 a.active svg rect {
   fill: red;
   stroke: red;
+}
+.PhoneInput input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  color: #fff;
+  background-color: #111111;
+  font-size: 18px;
+  font-weight: 500;
+}
+.PhoneInput select {
+  border-radius: 50%;
+  background-color: #fff;
 }
