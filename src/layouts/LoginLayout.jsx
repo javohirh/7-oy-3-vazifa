@@ -7,7 +7,7 @@ function LoginLayout() {
   const path = useLocation();
 
   return (
-    <div className=" min-h-screen relative max-w-[1000px] mx-auto ">
+    <div className=" min-h-screen relative max-w-[1200px] mx-auto ">
       <Header />
       <NavLink
         className={" absolute mt-12"}

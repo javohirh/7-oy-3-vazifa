@@ -16,6 +16,7 @@ function Search() {
         return data.data.results;
       }),
   });
+  console.log(data);
 
   const handleSearch = (e) => {
     setSearchedFilm(e);
@@ -25,7 +26,6 @@ function Search() {
       )
     );
   };
-  console.log(film);
 
   return (
     <div className="max-w-[1200px] mx-auto">

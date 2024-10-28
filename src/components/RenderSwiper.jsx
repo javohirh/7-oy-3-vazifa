@@ -19,10 +19,11 @@ function RenderSwiper({ title = "На неделе" }) {
       await request(
         "/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc"
       ).then((data) => {
+        console.log(data);
+
         return data.data.results;
       }),
   });
-  // console.log(data);
 
   const path = useLocation();
 
@@ -54,7 +55,7 @@ function RenderSwiper({ title = "На неделе" }) {
           >
             {data && (
               <>
-                <SwiperSlide className="h-96 rounded-md bg-[#1D1D1D] max-w-[300px]  ">
+                <SwiperSlide className="h-96 rounded-md  bg-[#1D1D1D] max-w-[300px]  ">
                   <div className="relative h-full">
                     <Link to={`/seance/${data[randomNumber].id}`}>
                       <img
@@ -62,7 +63,7 @@ function RenderSwiper({ title = "На неделе" }) {
                           "https://image.tmdb.org/t/p/w500/" +
                           data[randomNumber].poster_path
                         }
-                        className="w-full h-full"
+                        className="w-full h-full rounded-md "
                         alt=""
                       />
                     </Link>
@@ -89,7 +90,7 @@ function RenderSwiper({ title = "На неделе" }) {
                           "https://image.tmdb.org/t/p/w500/" +
                           data[randomNumber2].poster_path
                         }
-                        className="w-full h-full"
+                        className="w-full h-full rounded-md "
                         alt=""
                       />
                     </Link>
@@ -116,7 +117,7 @@ function RenderSwiper({ title = "На неделе" }) {
                           "https://image.tmdb.org/t/p/w500/" +
                           data[randomNumber3].poster_path
                         }
-                        className="w-full h-full"
+                        className="w-full h-full rounded-md "
                         alt=""
                       />
                     </Link>
@@ -143,7 +144,7 @@ function RenderSwiper({ title = "На неделе" }) {
                           "https://image.tmdb.org/t/p/w500/" +
                           data[randomNumber4].poster_path
                         }
-                        className="w-full h-full"
+                        className="w-full h-full rounded-md "
                         alt=""
                       />
                     </Link>

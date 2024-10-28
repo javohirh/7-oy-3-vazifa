@@ -13,10 +13,8 @@ import sport from "../assets/images/sport.png";
 import ins from "../assets/images/ins-logo.png";
 import face from "../assets/images/face-logo.png";
 import you from "../assets/images/you-logo.png";
-import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 const Footer = () => {
-  const { language } = useSelector((store) => store.language);
   const { pathname } = useLocation();
   if (pathname == "/profile") {
     return <></>;
@@ -77,7 +75,7 @@ const Footer = () => {
             </li>
           </Link>
           <Link>
-            <li className="flex my-4 items-center text-red-500 gap-2">
+            <li className="flex my-4 items-center  gap-2">
               <img src={cinema} alt="" />
               Театр
             </li>
